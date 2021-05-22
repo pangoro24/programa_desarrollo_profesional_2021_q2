@@ -7,7 +7,7 @@ import time
 
 def eladio_fnc(num1, num2):
     pass
-    print("variables",num1,num2)
+    print("variables nuevas",num1,num2)
     z=num1+num2
     return z
 
