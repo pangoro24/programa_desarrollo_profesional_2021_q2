@@ -13,7 +13,7 @@ def eladio_fnc(num1, num2):
 
 
 def farid_fnc(a,b): 
-    print("numeros:",a,b)
+    print("numeros nuevos EQ:",a,b)
     x=a+b
     #print("Suma",x)
     return x
