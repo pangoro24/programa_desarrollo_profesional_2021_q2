@@ -1,8 +1,8 @@
-import poh_btn 
-import poh_led
+from poh_adc import Adc
+import time
+#import logging
 
-bouton(15)
-parpadeo(4)
-
-while True:
-    ledd.value(state)
+reader1 = Adc(27)
+while  True:
+    print(reader1.CheckStatusSync())
+    time.sleep(1)
