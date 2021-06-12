@@ -1,4 +1,4 @@
-import logging
+#import logging
 from machine  import Pin as DO
 
 class Light:
@@ -10,32 +10,40 @@ class Light:
             gpio, not board
         """
         self.pin = pin
-        self.light = DO(self.pin,Pin.OUT)
-        logging.debug("Led was set at pin# " + str(self.pin))
+        self.light = DO(self.pin,DO.OUT)
+        print("Led was initialized")
+        #logging.debug("Led was set at pin# " + str(self.pin))
 
     async def TurnOn(self):
         self.light.on()
-        logging.debug("Led_{} turned on".format(self.pin))
+        print("Led was turned on")
+        #logging.debug("Led_{} turned on".format(self.pin))
 
     async def TurnOff(self):
         self.light.off()
-        logging.debug("Led_{} turned off".format(self.pin))
+        #logging.debug("Led_{} turned off".format(self.pin))
         
     async def CheckStatus(self):
-        return self.light.is_active
+        #return self.light.is_active
+        return 0
 
     def TurnOnSync(self):
         self.light.on()
-        logging.debug("Led_{} turned on".format(self.pin))
+        print("Led was turned on")
+        #logging.debug("Led_{} turned on".format(self.pin))
 
     def TurnOffSync(self):
         self.light.off()
-        logging.debug("Led_{} turned off".format(self.pin))
+        print("Led was turned off")
+        #logging.debug("Led_{} turned off".format(self.pin))
     
     def ToggleSync(self):
-        self.light.value()
-        return self.light.is_active
+        v = self.light.value() 
+        if v == 1:
+            self.TurnOffSync()
+        else:
+            self.TurnOnSync()
+        return self.light.value() 
     
     def CheckStatusSync(self):
-        return self.light.is_active
-
+        return self.light.value() 
