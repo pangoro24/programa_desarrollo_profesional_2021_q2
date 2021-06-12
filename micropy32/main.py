@@ -12,10 +12,11 @@ led1.ToggleSync()
 print("Done")
 
 while True:
-    bt1=bouton.value()
-    if not bt1:
-        led1.value(1)
+    btn= bt1.CheckStatusSync()
+    
+    if not btn:
+        print("Encendido")
     else:
-        led1.value(0)
-    print(bt1)
+        print("Apagado")
     time.sleep(1)
+    
