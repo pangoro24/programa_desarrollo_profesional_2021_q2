@@ -1,9 +1,9 @@
-from machine import ADC
+from machine import Pin,ADC
 class Adc:
-    def _init_ (self,pin ):
+    def __init__(self, pin):
         self.pin = pin
-        self.reader = ADC(self.pin)
+        self.r = ADC(self.pin)
         print("Adc inicializado")
-    def CheckStatusSync(self ):
-        return self.reader.read() 
+    def CheckStatusSync(self):
+        return self.r.read() 
         
