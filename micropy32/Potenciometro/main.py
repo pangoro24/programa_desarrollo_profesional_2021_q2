@@ -1,10 +1,12 @@
-from machine import ADC
-import time
-#import logging
+from machine import Pin, ADC
+from time import sleep
 
-lectura= 0
-entrada = ADC(0)
-while  True:
-    lectura = entrada.read()
-    print(lectura)
-    time.sleep(1)
+pot = ADC(Pin(34))
+pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
+Voltaje= 0
+while True:
+    pot_value = pot.read()
+    Voltaje= (pot_value * 3.3)/4095
+
+    print(Voltaje)
+    sleep(0.5)
